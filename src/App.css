@@ -1,38 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: url('https://img.freepik.com/vector-premium/hermoso-diseno-fondo-neon_23-2149092238.jpg') no-repeat center center fixed;
+  background-size: cover; /* Asegura que la imagen cubra toda el área del fondo */
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Para asegurarse de que los globos no se salgan del viewport */
+}
+
 .App {
   text-align: center;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  padding: 40px; /* Aumenté el padding */
+  width: 400px; /* Aumenté el width */
+  border: 8px solid #ff00ff; /* Aumenté el borde */
+  position: relative;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+  font-family: 'Press Start 2P', cursive; /* Fuente estilo arcade */
+  color: #ff00ff;
+  font-size: 36px; /* Aumenté el tamaño del texto */
+  margin-bottom: 30px; /* Aumenté el margen inferior */
+  text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ff00ff, 0 0 45px #ff00ff; /* Aumenté el brillo */
+  animation: bounce 1s infinite;
+}
+
+input[type="number"] {
+  padding: 15px; /* Aumenté el padding */
+  font-size: 24px; /* Aumenté el tamaño del texto */
+  border: 3px solid #ff00ff; /* Aumenté el borde */
+  border-radius: 8px; /* Aumenté el border-radius */
+  background: #222;
+  color: #ff00ff; /* Cambié el texto a rosa fluor */
+  outline: none;
+  width: calc(100% - 30px); /* Ajusté el width */
+  animation: pulse 1s infinite;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); /* Aumenté el brillo */
+}
+
+input[type="number"]:focus {
+  border-color: #ff00ff; /* Cambié el color del borde en foco a rosa fluor */
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.9); /* Aumenté el brillo en foco */
+}
+
+button {
+  background-color: #ff00ff; /* Rosa fluor */
+  border: none;
+  color: #fff; /* Texto en blanco para resaltar en el fondo rosa */
+  padding: 15px 30px; /* Aumenté el padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px; /* Aumenté el tamaño del texto */
+  margin: 15px 0; /* Aumenté el margen */
+  border-radius: 8px; /* Aumenté el border-radius */
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.8); /* Aumenté el brillo del botón */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff66ff; /* Rosa fluor más claro */
+  box-shadow: 0 0 25px rgba(255, 0, 255, 1); /* Brillo más fuerte al pasar el ratón */
+}
+
+p {
+  font-size: 24px; /* Aumenté el tamaño del texto */
+  font-weight: bold;
+  margin-top: 20px; /* Aumenté el margen superior */
+  text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff; /* Aumenté el brillo */
+  animation: fadeIn 1s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-40px); /* Aumenté la altura del salto */
+  }
+  60% {
+    transform: translateY(-20px); /* Aumenté la altura del rebote */
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Aumenté la escala */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); /* Aumenté el desplazamiento del shake */
+  }
+  50% { transform: translateX(10px); /* Aumenté el desplazamiento del shake */
+  }
+  75% { transform: translateX(-10px); /* Aumenté el desplazamiento del shake */
+  }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); /* Aumenté la altura de flotación */
+  }
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 70px; /* Aumenté el tamaño de los globos */
+  height: 70px; /* Aumenté el tamaño de los globos */
+  background-color: #ff00ff;
+  border-radius: 50%;
+  opacity: 0.7;
   pointer-events: none;
+  animation: float 5s infinite;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.6); /* Aumenté el brillo de los globos */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bubble:nth-child(1) {
+  left: 10%;
+  animation-duration: 4s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bubble:nth-child(2) {
+  left: 30%;
+  animation-duration: 6s;
 }
 
-.App-link {
-  color: #61dafb;
+.bubble:nth-child(3) {
+  left: 50%;
+  animation-duration: 5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bubble:nth-child(4) {
+  left: 70%;
+  animation-duration: 7s;
+}
+
+.bubble:nth-child(5) {
+  left: 90%;
+  animation-duration: 4.5s;
 }
